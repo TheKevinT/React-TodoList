@@ -53,12 +53,28 @@ this.setState({
 }
  
 handleDelete = (id)=>{
-  const filteredItems = this.state.items.filter(item => item.id !== id)
+  const filteredItems = this.state.items.filter(item => item.id !== id);
   this.setState({
     items: filteredItems
   });
 };
 
+handleEdit = id=>{
+  //borra el termino para editarlo....es el mismo metodo de arriba
+  const filteredItems = this.state.items.filter(item => item.id !== id);
+  
+  //se pasa a la caja donde se ingrresa un item
+  const selectedItem = this.state.items.find(item => item.id === id);
+
+
+  this.setState({
+    items: filteredItems,
+    item: selectedItem.title,
+    editItem: true,
+    id:id
+
+  })
+}
 
 
 render() {
@@ -76,13 +92,14 @@ render() {
               item= {this.state.item}
               handleChange={this.handleChange}
               handleSumit={this.handleSumit}
+              editItem={this.state.editItem}
               
               />
             <TodoList 
               items ={this.state.items}
               clearList={this.clearList}
               handleDelete={this.handleDelete}
-            
+              handleEdit={this.handleEdit}
             />
     
             </div>

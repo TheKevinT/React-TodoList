@@ -3,7 +3,7 @@ import  { Fragment } from 'react';
 
 export default class TodoInput extends Component {
     render() {
-        const { item, handleChange, handleSumit} = this.props;
+        const { item, handleChange, handleSumit, editItem} = this.props;
         return (
         <Fragment>
             
@@ -17,9 +17,14 @@ export default class TodoInput extends Component {
                                 </div>
                         </div>
 
-                    <input type ="text "className="form-control text-capitalize" placeholder="Añadir a la lista" value={item} onChange={handleChange}></input>
+                    <input type ="text " className="form-control text-capitalize" placeholder="Añadir a la lista" value={item} onChange={handleChange}></input>
                     </div>
-                    <button type="submit" className="btn btn-block btn-primary mt-3" >AÑADIR</button>
+        <button type="submit" 
+        className={ 
+            editItem 
+            ? "btn btn-block btn-success mt-3"
+            : "btn btn-block btn-primary mt-3"
+            } > {editItem ? "EDITAR" : "AÑADIR"}</button>
                 </form>
             </div>
 
