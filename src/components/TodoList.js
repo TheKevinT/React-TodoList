@@ -4,13 +4,22 @@ import  { Fragment } from 'react';
 
 export default class TodoList extends Component {
     render() {
+        const {items} = this.props;
         return (
            <Fragment>
                <ul className="list-group my-5">
                     <h3 className="text-capitalize text-center">LISTA DE COSAS</h3>
-                    <TodoItem/>
 
-                    <button type="submit" className="btn btn-danger btn-block text-capitalize mt-5">LIMPIA LISTA</button>
+{
+    items.map(item=>{
+        return (
+            <TodoItem key={item.id} title={item.title}/>
+        )
+    })
+}
+                   
+ 
+                    <button type="submit" className="btn btn-danger btn-block text-capitalize mt-5">LIMPIAR LISTA</button>
                </ul>
 
            </Fragment>
