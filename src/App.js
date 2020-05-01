@@ -33,7 +33,8 @@ const newItem={
   id:this.state.id,
   title:this.state.item
 }
-console.log(newItem);
+
+
 const updateItems = [...this.state.items, newItem];
 
 this.setState({
@@ -41,13 +42,18 @@ this.setState({
   item:'',
   id: uuid(),
   editItem:false
-})
-
-
-
-
+});
 }
- render() {
+
+clearList = ()=>{
+this.setState({
+  items:[]
+})  
+}
+ 
+
+
+render() {
   return (
     <Fragment>
         <div className="container">
@@ -66,6 +72,7 @@ this.setState({
               />
             <TodoList 
               items ={this.state.items}
+              clearList={this.clearList}
             
             />
     
