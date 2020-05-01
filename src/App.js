@@ -19,6 +19,7 @@ class App extends Component {
     editItem:false
   }
 
+  //funcion que se llama todo el rato para actualizarse los valores
  handleChange = e =>{
     this.setState({
       item:e.target.value
@@ -51,6 +52,13 @@ this.setState({
 })  
 }
  
+handleDelete = (id)=>{
+  const filteredItems = this.state.items.filter(item => item.id !== id)
+  this.setState({
+    items: filteredItems
+  });
+};
+
 
 
 render() {
@@ -73,6 +81,7 @@ render() {
             <TodoList 
               items ={this.state.items}
               clearList={this.clearList}
+              handleDelete={this.handleDelete}
             
             />
     

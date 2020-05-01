@@ -4,7 +4,7 @@ import  { Fragment } from 'react';
 
 export default class TodoList extends Component {
     render() {
-        const {items, clearList} = this.props;
+        const {items, clearList, handleDelete} = this.props;
         return (
            <Fragment>
                <ul className="list-group my-5">
@@ -13,7 +13,12 @@ export default class TodoList extends Component {
 {
     items.map(item=>{
         return (
-            <TodoItem key={item.id} title={item.title}/>
+            <TodoItem 
+            
+                key={item.id} 
+                title={item.title}
+                handleDelete={()=>handleDelete(item.id)}
+             />
         )
     })
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import  { Fragment } from 'react';
 export default class TodoItem extends Component {
     render() {
-        const {title}= this.props;
+        const {title, handleDelete}= this.props;
 
 
         return (
@@ -18,7 +18,7 @@ export default class TodoItem extends Component {
                     </span>
 
 
-                    <span className="mx-2 text-danger" >
+                    <span className="mx-2 text-danger" onClick={handleDelete} >
                         <i className="fas fa-trash" ></i>
 
                     </span>
